@@ -23,5 +23,5 @@
     <!-- favicon.ico in the root directory -->
     <link rel="apple-touch-icon" href="icon.png">
     <meta name="theme-color" content="#3454d1">
-    <link href="{{asset('assets/css/stylesbd04.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/stylesbd04.css?8918068d71def746395d')}}" rel="stylesheet">
 </head>

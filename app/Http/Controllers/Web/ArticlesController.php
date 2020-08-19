@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use App\Article;
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -53,8 +54,11 @@ class ArticlesController extends Controller
     {
         $article = Article::find($id);
         $categories = Category::all();
-        return view('pages.articles.detail', compact('article', 'categories'));
+        $reviews = Review::all();
+        return view('pages.articles.detail', compact('article', 'categories', 'reviews'));
     }
+
+
 
     /**
      * Show the form for editing the specified resource.

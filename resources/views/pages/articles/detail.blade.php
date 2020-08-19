@@ -154,8 +154,9 @@
             <!-- COMMENTS -->
             <h6>3 Comments:</h6>
             <div class="single__detail-features-review">
+                @foreach($reviews as $review)
                 <div class="media mt-4">
-                    <img class="mr-3 img-fluid rounded-circle" src="images/profile-blog.jpg" alt="">
+                    <img class="mr-3 img-fluid rounded-circle" src="{{asset('assets/images/profile-blog.jpg')}}" alt="">
                     <div class="media-body">
                         <h6 class="mt-0">Jhon doe</h6>
                         <span class="mb-3">Mei 13, 2020</span>
@@ -169,102 +170,14 @@
                             </li>
                             <li class="list-inline-item">3/5</li>
                         </ul>
-                        <p> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-                            ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
-                            viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
-                            Donec
-                            lacinia congue felis in faucibus.</p>
-
-                        <div class="media mt-4">
-                            <a class="pr-3" href="#">
-                                <img src="images/client.png" alt="" class="img-fluid rounded-circle">
-                            </a>
-                            <div class="media-body">
-                                <h6 class="mt-0">Christine </h6>
-                                <span class="mb-3">Mei 13, 2020</span>
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <i class="fa fa-star selected"></i>
-                                        <i class="fa fa-star selected"></i>
-                                        <i class="fa fa-star selected"></i>
-                                        <i class="fa fa-star selected"></i>
-                                        <i class="fa fa-star selected"></i>
-                                    </li>
-                                    <li class="list-inline-item">5/5</li>
-                                </ul>
-                                <p> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-                                    scelerisque ante sollicitudin. </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="media mt-4">
-                    <img class="mr-3 img-fluid rounded-circle" src="images/profile-blog.jpg" alt="">
-                    <div class="media-body">
-                        <h6 class="mt-0">Jhon Doe</h6>
-                        <span class="mb-3">Mei 13, 2020</span>
-                        <ul class="list-inline">
-                            <li class="list-inline-item">
-                                <i class="fa fa-star selected"></i>
-                                <i class="fa fa-star selected"></i>
-                                <i class="fa fa-star selected"></i>
-                                <i class="fa fa-star selected"></i>
-                                <i class="fa fa-star selected"></i>
-                            </li>
-                            <li class="list-inline-item">5/5</li>
-                        </ul>
-                        <p> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-                            ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
-                            viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
-                            Donec
-                            lacinia congue felis in faucibus.</p>
-
+                        <p>{{$review->reviews->article_id}}</p>
 
                     </div>
                 </div>
+                @endforeach
+
                 <!-- COMMENT -->
                 <hr>
-                <div class="row">
-                    <div class="col-md-12">
-                        <p class="mb-2">Your rating for this listing:</p>
-                        <ul class="list-inline">
-                            <li class="list-inline-item">
-                                <i class="fa fa-star selected"></i>
-                                <i class="fa fa-star selected"></i>
-                                <i class="fa fa-star selected"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </li>
-                            <li class="list-inline-item">3/5</li>
-                        </ul>
-                        <div class="form-group">
-                            <label>Your Name</label>
-                            <input type="text" class="form-control" required="required">
-
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>What's your Email?</label>
-                            <input type="email" class="form-control" required="required">
-
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Subject</label>
-                            <input type="text" class="form-control" required="required">
-
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Your message</label>
-                            <textarea class="form-control" rows="4"></textarea>
-                        </div>
-                    </div>
-                </div>
 
                 <button type="submit" class="btn btn-primary float-right "> Submit review <i
                             class="fa fa-paper-plane ml-2"></i></button>
