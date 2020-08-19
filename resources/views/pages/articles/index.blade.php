@@ -19,7 +19,7 @@
                                         <!-- <span class="badge badge-secondary p-1 text-capitalize mb-3">May 08, 2019
                                         </span> -->
                                         <h6 class="text-capitalize">
-                                            <a href="blog-single.html">{{$article->title}}</a>
+                                            <a href="{{route('article.show', $article->id)}}">{{$article->title}}</a>
                                         </h6>
                                         <p class=" mb-0">
                                             {{$article->content}}

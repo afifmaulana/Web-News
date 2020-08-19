@@ -51,7 +51,9 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-        //
+        $article = Article::find($id);
+        $categories = Category::all();
+        return view('pages.articles.detail', compact('article', 'categories'));
     }
 
     /**

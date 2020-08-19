@@ -205,6 +205,7 @@
 <section>
     <div class="container">
 @yield('content')
+
     </div>
 </section>
 
