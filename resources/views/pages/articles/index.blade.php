@@ -25,7 +25,6 @@
                                             {{$article->content}}
                                         </p>
 
-
                                     </div>
                                     <div class="card__image-footer">
                                         <figure>

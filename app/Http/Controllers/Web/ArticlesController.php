@@ -9,6 +9,7 @@ use App\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class ArticlesController extends Controller
 {
     /**
@@ -50,11 +51,11 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $article_id)
     {
         $article = Article::find($id);
         $categories = Category::all();
-        $reviews = Review::all();
+        $reviews = Review::where('article_id', $article_id)->get();
         return view('pages.articles.detail', compact('article', 'categories', 'reviews'));
     }
 

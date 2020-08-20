@@ -48,21 +48,6 @@
                 {{$article->content}}
             </p>
 
-
-            <p>
-                To achieve this, it would be necessary to have uniform grammar, pronunciation and more
-                common
-                words. If several languages coalesce, the grammar of the resulting language is more simple
-                and
-                regular than that of the individual languages. The new common language will be more simple
-                and
-                regular than the existing European languages. It will be as simple as Occidental; in fact,
-                it
-                will be Occidental. To an English person, it will seem like simplified English, as a
-                skeptical
-                Cambridge friend of mine told me what Occidental is.
-            </p>
-
             <!-- BLOCKQUOTE -->
             <blockquote class="block-quote">
                 <p>
@@ -154,7 +139,6 @@
             <!-- COMMENTS -->
             <h6>3 Comments:</h6>
             <div class="single__detail-features-review">
-                @foreach($reviews as $review)
                 <div class="media mt-4">
                     <img class="mr-3 img-fluid rounded-circle" src="{{asset('assets/images/profile-blog.jpg')}}" alt="">
                     <div class="media-body">
@@ -170,11 +154,13 @@
                             </li>
                             <li class="list-inline-item">3/5</li>
                         </ul>
-                        <p>{{$review->reviews->article_id}}</p>
+                        @foreach($reviews as $review)
+
+                        <p>{{$review->reviews->comment}}</p>
+                        @endforeach
 
                     </div>
                 </div>
-                @endforeach
 
                 <!-- COMMENT -->
                 <hr>
