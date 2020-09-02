@@ -22,5 +22,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/article', 'Web\ArticlesController@index')->name('article.index');
-Route::get('/article/{id}/show', 'Web\ArticlesController@show')->name('article.show');
+Route::get('/review/article/{article_id}', 'Web\ReviewController@show')->name('review.show');
 //Route::view('pages.article.create');

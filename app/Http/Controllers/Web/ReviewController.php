@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Article;
-use App\Category;
 use App\Http\Controllers\Controller;
 use App\Review;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-
-class ArticlesController extends Controller
+class ReviewController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +15,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
-        return view('pages.articles.index', compact('articles'));
+        //
     }
 
     /**
@@ -50,13 +45,11 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($article_id)
     {
-        $article = Article::find($id);
-        return view('pages.articles.detail', compact('article'));
+        $reviews = Review::where('article_id', $article_id)->first();
+        return view('pages.reviews.detail', compact('reviews'));
     }
-
-
 
     /**
      * Show the form for editing the specified resource.
