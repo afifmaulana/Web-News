@@ -51,12 +51,10 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id, $article_id)
+    public function show($id)
     {
         $article = Article::find($id);
-        $categories = Category::all();
-        $reviews = Review::where('article_id', $article_id)->get();
-        return view('pages.articles.detail', compact('article', 'categories', 'reviews'));
+        return view('pages.articles.detail', compact('article'));
     }
 
 

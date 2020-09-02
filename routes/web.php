@@ -21,6 +21,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/article', 'Web\ArticlesController@index')->name('article');
-Route::get('/article/{id}/{article_id}', 'Web\ArticlesController@show')->name('article.show');
+Route::get('/article', 'Web\ArticlesController@index')->name('article.index');
+Route::get('/article/{id}/show', 'Web\ArticlesController@show')->name('article.show');
 //Route::view('pages.article.create');

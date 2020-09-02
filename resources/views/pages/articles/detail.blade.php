@@ -154,9 +154,9 @@
                             </li>
                             <li class="list-inline-item">3/5</li>
                         </ul>
-                        @foreach($reviews as $review)
+                        @foreach($article as $review)
 
-                        <p>{{$review->reviews->comment}}</p>
+                        <p>{{$review->reviews->rating}}</p>
                         @endforeach
 
                     </div>
