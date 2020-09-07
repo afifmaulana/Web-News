@@ -69,8 +69,6 @@
 
                         <p>{{$reviews->comment}}</p>
 
-
-
                     </div>
                 </div>
 

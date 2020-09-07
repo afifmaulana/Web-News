@@ -1,7 +1,6 @@
 @extends('templates.news')
 @section('content')
 
-
             <div class="row">
                 <!-- BLOG START -->
                 <div class="col-lg-8">
@@ -239,7 +238,6 @@
                                                 </a>
                                             </li>
 
-
                                         </ul>
                                     </div>
                                 </div>
@@ -250,7 +248,5 @@
                 </div>
                 <!-- END WIDGET BLOG -->
             </div>
-
-
 
     @endsection
