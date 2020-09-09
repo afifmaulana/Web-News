@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Article;
 use App\Http\Controllers\Controller;
 use App\Review;
 use Illuminate\Http\Request;
@@ -45,10 +46,10 @@ class ReviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($article_id)
+    public function show($id)
     {
-        $reviews = Review::where('article_id', $article_id)->first();
-        return view('pages.reviews.detail', compact('reviews'));
+        $article = Article::find($id);
+        return view('pages.reviews.detail', compact('article'));
     }
 
     /**

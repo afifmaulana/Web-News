@@ -20,6 +20,7 @@
     <meta name="twitter:card" content="" />
 
     <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- favicon.ico in the root directory -->
     <link rel="apple-touch-icon" href="icon.png">
     <meta name="theme-color" content="#3454d1">

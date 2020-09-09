@@ -2,88 +2,88 @@
 @section('content')
 
     <div class="row">
-    <div class="col-lg-8">
-        <div class="single__blog-detail">
-            <h1>
-                {{$reviews->article->title}}
-            </h1>
-
-            <div class="single__blog-detail-info">
-                <ul class="list-inline">
-                    <li class="list-inline-item">
-                        <figure class="image-profile">
-                            <img src="{{asset('assets/images/profile-blog.jpg')}}" class="img-fluid" alt="">
-                        </figure>
-                    </li>
-                    <li class="list-inline-item">
+        <div class="col-lg-8">
+            <div class="single__blog-detail">
+                <h1>
+                    {{$article->title}}
+                </h1>
+                <div class="single__blog-detail-info">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <figure class="image-profile">
+                                <img src="{{asset('assets/images/profile-blog.jpg')}}" class="img-fluid" alt="">
+                            </figure>
+                        </li>
+                        <li class="list-inline-item">
 
                                     <span>
                                         by
                                     </span>
-                        <a href="#">
-                            john doe,
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
+                            <a href="#">
+                                john doe,
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
                                     <span class="text-dark text-capitalize ml-1">
                                         descember 09, 2016
                                     </span>
-                    </li>
+                        </li>
 
-                    <li class="list-inline-item">
+                        <li class="list-inline-item">
                                     <span class="text-dark text-capitalize ml-1">
                                         in
                                     </span>
-                        <a href="#">
-                            business
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <figure>
-                <img src="{{$reviews->article->image}}" class="img-fluid" alt="">
-            </figure>
-
-            <p class="drop-cap">
-                {{$reviews->article->content}}
-            </p>
-            <!-- COMMENTS -->
-            <h6>3 Comments:</h6>
-            <div class="single__detail-features-review">
-                <div class="media mt-4">
-                    <img class="mr-3 img-fluid rounded-circle" src="{{asset('assets/images/profile-blog.jpg')}}" alt="">
-                    <div class="media-body">
-                        <h6 class="mt-0">Jhon doe</h6>
-                        <span class="mb-3">Mei 13, 2020</span>
-
-                        <ul class="list-inline">
-                            <li class="list-inline-item">
-                                <i class="fa fa-star selected"></i>
-                                <i class="fa fa-star selected"></i>
-                                <i class="fa fa-star selected"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </li>
-                            <li class="list-inline-item">3/5</li>
-                        </ul>
-
-                        <p>{{$reviews->comment}}</p>
-
-                    </div>
+                            <a href="#">
+                                business
+                            </a>
+                        </li>
+                    </ul>
                 </div>
+                <figure>
+                    <img src="{{$article->image}}" class="img-fluid" alt="">
+                </figure>
 
-                <!-- COMMENT -->
-                <hr>
+                <p class="drop-cap">{{$article->content}}</p>
+                <!-- COMMENTS -->
+                <h6>3 Comments:</h6>
+                <div class="single__detail-features-review">
+                    <div class="media mt-4">
+                        <img class="mr-3 img-fluid rounded-circle" src="{{asset('assets/images/profile-blog.jpg')}}"
+                             alt="">
+                        <div class="media-body">
+                            <h6 class="mt-0">Jhon doe</h6>
+                            <span class="mb-3">Mei 13, 2020</span>
 
-                <button type="submit" class="btn btn-primary float-right "> Submit review <i
-                            class="fa fa-paper-plane ml-2"></i></button>
-                <!-- END COMMENT -->
+                            @php($rating = $article->reviews->sum('rating')/ count($article->reviews))
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <i class="fa fa-star {{ $rating > 1 || $rating < 2 ? 'selected' : '' }}"></i>
+                                    <i class="fa fa-star {{ $rating > 2 || $rating < 3 ? 'selected' : '' }}"></i>
+                                    <i class="fa fa-star {{ $rating > 3 || $rating < 4 ? 'selected' : '' }}"></i>
+                                    <i class="fa fa-star {{ $rating > 4 || $rating < 5 ? 'selected' : '' }}"></i>
+                                    <i class="fa fa-star {{ $rating > 5 ? 'selected' : '' }}"></i>
+                                </li>
+                                <li class="list-inline-item"></li>
+                            </ul>
+
+                            @foreach($article->reviews as $review)
+                                <p>{{ $review->comment }}</p>
+                            @endforeach
+                        </div>
+                    </div>
+
+                    <!-- COMMENT -->
+                    <hr>
+
+                    <button type="submit" class="btn btn-primary float-right "> Submit review <i
+                                class="fa fa-paper-plane ml-2"></i></button>
+                    <!-- END COMMENT -->
+
+                </div>
+                <!-- END COMMENTS -->
 
             </div>
-            <!-- END COMMENTS -->
-
         </div>
-    </div>
         <!-- WIDGET BLOG -->
         <div class="col-lg-4">
             <div class="sticky-top">
@@ -113,12 +113,12 @@
                         <div class="widget__sidebar__body">
                             <ul class="list-unstyled">
                                 {{--@foreach($reviews as $categories)--}}
-                                    {{--<li>--}}
-                                        {{--<a href="#" class="text-capitalize">--}}
-                                            {{--{{$categories->category->category}}--}}
-                                            {{--<span class="badge badge-primary">{{count(\App\Article::all())}}</span>--}}
-                                        {{--</a>--}}
-                                    {{--</li>--}}
+                                {{--<li>--}}
+                                {{--<a href="#" class="text-capitalize">--}}
+                                {{--{{$categories->category->category}}--}}
+                                {{--<span class="badge badge-primary">{{count(\App\Article::all())}}</span>--}}
+                                {{--</a>--}}
+                                {{--</li>--}}
                                 {{--@endforeach--}}
                             </ul>
                         </div>
@@ -133,7 +133,7 @@
                         <div class="widget__sidebar__body">
                             <!-- ONE -->
                             <div class="widget__sidebar__body-img">
-                                <img src="images/gallery.jpg" alt="" class="img-fluid">
+                                <img src="{{asset('assets/images/gallery.jpg')}}" alt="" class="img-fluid">
 
                                 <div class="widget__sidebar__body-heading">
                                     <h6 class="text-capitalize">
@@ -275,6 +275,7 @@
             </div>
         </div>
         <!-- END WIDGET BLOG -->
+
     </div>
 
-    @endsection
+@endsection
