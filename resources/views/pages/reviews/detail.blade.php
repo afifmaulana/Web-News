@@ -112,14 +112,14 @@
                         </div>
                         <div class="widget__sidebar__body">
                             <ul class="list-unstyled">
-                                {{--@foreach($reviews as $categories)--}}
-                                {{--<li>--}}
-                                {{--<a href="#" class="text-capitalize">--}}
-                                {{--{{$categories->category->category}}--}}
-                                {{--<span class="badge badge-primary">{{count(\App\Article::all())}}</span>--}}
-                                {{--</a>--}}
-                                {{--</li>--}}
-                                {{--@endforeach--}}
+                                @foreach($article as $categories)
+                                    <li>
+                                        <a href="#" class="text-capitalize">
+                                            {{$categories->category->category}}
+                                            <span class="badge badge-primary">{{count(\App\Article::all())}}</span>
+                                        </a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
 
@@ -159,7 +159,7 @@
                             </div>
                             <!-- THREE -->
                             <div class="widget__sidebar__body-img">
-                                <img src="images/gallery2.jpg" alt="" class="img-fluid">
+                                <img src="{{asset('assets/images/gallery2.jpg')}}" alt="" class="img-fluid">
                                 <div class="widget__sidebar__body-heading">
                                     <h6 class="text-capitalize">
                                         twe are experience more than 10 years
@@ -171,7 +171,7 @@
                             </div>
                             <!-- FOUR -->
                             <div class="widget__sidebar__body-img">
-                                <img src="images/gallery3.jpg" alt="" class="img-fluid">
+                                <img src="{{asset('assets/images/gallery3.jpg')}}" alt="" class="img-fluid">
 
                                 <div class="widget__sidebar__body-heading">
                                     <h6 class="text-capitalize">
@@ -184,7 +184,7 @@
                             </div>
 
                             <div class="widget__sidebar__body-img">
-                                <img src="images/gallery4.jpg" alt="" class="img-fluid">
+                                <img src="{{asset('assets/images/gallery4.jpg')}}" alt="" class="img-fluid">
 
                                 <div class="widget__sidebar__body-heading">
                                     <h6 class="text-capitalize">
