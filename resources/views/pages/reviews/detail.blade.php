@@ -54,7 +54,7 @@
                             <h6 class="mt-0">Jhon doe</h6>
                             <span class="mb-3">Mei 13, 2020</span>
 
-                            @php($rating = $article->reviews->sum('rating')/ count($article->reviews))
+                            @php($rating = $article->reviews->sum('rating') ? $article->reviews->sum('rating')  / count($article->reviews) : 0)
                             <ul class="list-inline">
                                 <li class="list-inline-item">
                                     <i class="fa fa-star {{ $rating > 1 || $rating < 2 ? 'selected' : '' }}"></i>
@@ -112,14 +112,15 @@
                         </div>
                         <div class="widget__sidebar__body">
                             <ul class="list-unstyled">
-                                @foreach($article as $categories)
-                                    <li>
-                                        <a href="#" class="text-capitalize">
-                                            {{$categories->category->category}}
-                                            <span class="badge badge-primary">{{count(\App\Article::all())}}</span>
-                                        </a>
-                                    </li>
-                                @endforeach
+
+                                {{--@foreach($categories as $category)--}}
+                                    {{--<li>--}}
+                                        {{--<a href="#" class="text-capitalize">--}}
+                                            {{--{{$category->category}}--}}
+                                            {{--<span class="badge badge-primary">{{count(\App\Article::all())}}</span>--}}
+                                        {{--</a>--}}
+                                    {{--</li>--}}
+                                {{--@endforeach--}}
                             </ul>
                         </div>
 

@@ -18,11 +18,9 @@
                                         <!-- <span class="badge badge-secondary p-1 text-capitalize mb-3">May 08, 2019
                                         </span> -->
                                         <h6 class="text-capitalize">
-                                            <a href="{{route('review.show', $article->id)}}">{{$article->title}}</a>
+                                            <a href="{{route('article.show', $article->id)}}">{{$article->title}}</a>
                                         </h6>
-                                        <p class=" mb-0">
-                                            {{$article->content}}
-                                        </p>
+                                        <p class=" mb-0">{{$article->content}}</p>
 
                                     </div>
                                     <div class="card__image-footer">
@@ -85,10 +83,10 @@
                                 </div>
                                 <div class="widget__sidebar__body">
                                     <ul class="list-unstyled">
-                                        @foreach($articles as $categories)
+                                        @foreach($articles as $article)
                                         <li>
                                             <a href="#" class="text-capitalize">
-                                                {{$categories->category->category}}
+                                                {{$article->category->category}}
                                                 <span class="badge badge-primary">{{count(\App\Article::all())}}</span>
                                             </a>
                                         </li>

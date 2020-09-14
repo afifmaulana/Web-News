@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Web;
 use App\Article;
 use App\Category;
 use App\Http\Controllers\Controller;
-use App\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,7 +18,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::where('status', true)->get();
         return view('pages.articles.index', compact('articles'));
     }
 
@@ -53,7 +52,8 @@ class ArticlesController extends Controller
     public function show($id)
     {
         $article = Article::find($id);
-        return view('pages.articles.detail', compact('article'));
+        $categories = Category::all();
+        return view('pages.articles.detail', compact('article', 'categories'));
     }
 
 

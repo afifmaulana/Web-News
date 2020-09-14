@@ -2,181 +2,88 @@
 @section('content')
 
     <div class="row">
-    <div class="col-lg-8">
-        <div class="single__blog-detail">
-            <h1>
-                {{$article->title}}
-            </h1>
-
-            <div class="single__blog-detail-info">
-                <ul class="list-inline">
-                    <li class="list-inline-item">
-                        <figure class="image-profile">
-                            <img src="{{asset('assets/images/profile-blog.jpg')}}" class="img-fluid" alt="">
-                        </figure>
-                    </li>
-                    <li class="list-inline-item">
+        <div class="col-lg-8">
+            <div class="single__blog-detail">
+                <h1>
+                    {{$article->title}}
+                </h1>
+                <div class="single__blog-detail-info">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <figure class="image-profile">
+                                <img src="{{asset('assets/images/profile-blog.jpg')}}" class="img-fluid" alt="">
+                            </figure>
+                        </li>
+                        <li class="list-inline-item">
 
                                     <span>
                                         by
                                     </span>
-                        <a href="#">
-                            john doe,
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
+                            <a href="#">
+                                john doe,
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
                                     <span class="text-dark text-capitalize ml-1">
                                         descember 09, 2016
                                     </span>
-                    </li>
+                        </li>
 
-                    <li class="list-inline-item">
+                        <li class="list-inline-item">
                                     <span class="text-dark text-capitalize ml-1">
                                         in
                                     </span>
-                        <a href="#">
-                            business
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <figure>
-                <img src="{{$article->image}}" class="img-fluid" alt="">
-            </figure>
-
-            <p class="drop-cap">
-                {{$article->content}}
-            </p>
-
-            <!-- BLOCKQUOTE -->
-            <blockquote class="block-quote">
-                <p>
-                    It is a long established fact that a reader will be distracted by the readable content
-                    of a page when looking at
-                    its layout.
-                </p>
-                <cite>
-                    Tom Cruise
-                </cite>
-            </blockquote>
-            <!-- END BLOCKQUOTE -->
-
-            <p>
-                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
-                Semantics, a large language ocean. A small river named Duden flows by their place and
-                supplies it with the necessary regelialia.
-            </p>
-
-
-            <!-- AUTHOR -->
-            <!-- Profile author -->
-            <div class="wrap__profile">
-                <div class="wrap__profile-author">
-                    <figure>
-                        <img src="{{asset('assets/images/profile-blog.jpg')}}" alt="" class="img-fluid img-circle">
-                    </figure>
-                    <div class="wrap__profile-author-detail">
-                        <div class="wrap__profile-author-detail-name">author</div>
-                        <h5>jhon doe</h5>
-                        <p>Hi, nice to meet you let me introduce for you, I am Jhon Doe freelancer designer
-                            & web programmer from
-                            indonesia,
-                            base lampung</p>
-                        <ul class="list-inline">
-                            <li class="list-inline-item">
-                                <a href="#" class="btn btn-social btn-social-o facebook ">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#" class="btn btn-social btn-social-o twitter ">
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#" class="btn btn-social btn-social-o instagram ">
-                                    <i class="fa fa-instagram"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#" class="btn btn-social btn-social-o telegram ">
-                                    <i class="fa fa-telegram"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#" class="btn btn-social btn-social-o linkedin ">
-                                    <i class="fa fa-linkedin"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                            <a href="#">
+                                business
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-            <!-- END AUTHOR -->
+                <figure>
+                    <img src="{{$article->image}}" class="img-fluid" alt="">
+                </figure>
 
+                <p class="drop-cap">{{$article->content}}</p>
+                <!-- COMMENTS -->
+                <h6>3 Comments:</h6>
+                <div class="single__detail-features-review">
+                    <div class="media mt-4">
+                        <img class="mr-3 img-fluid rounded-circle" src="{{asset('assets/images/profile-blog.jpg')}}"
+                             alt="">
+                        <div class="media-body">
+                            <h6 class="mt-0">Jhon doe</h6>
+                            <span class="mb-3">Mei 13, 2020</span>
 
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="single_navigation-prev">
-                        <a href="#">
-                            <span>previous post</span>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem, similique.
-                        </a>
+                            @php($rating = $article->reviews->sum('rating') ? $article->reviews->sum('rating')  / count($article->reviews) : 0)
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <i class="fa fa-star {{ $rating > 1 || $rating < 2 ? 'selected' : '' }}"></i>
+                                    <i class="fa fa-star {{ $rating > 2 || $rating < 3 ? 'selected' : '' }}"></i>
+                                    <i class="fa fa-star {{ $rating > 3 || $rating < 4 ? 'selected' : '' }}"></i>
+                                    <i class="fa fa-star {{ $rating > 4 || $rating < 5 ? 'selected' : '' }}"></i>
+                                    <i class="fa fa-star {{ $rating > 5 ? 'selected' : '' }}"></i>
+                                </li>
+                                <li class="list-inline-item"></li>
+                            </ul>
+
+                            @foreach($article->reviews as $review)
+                                <p>{{ $review->comment }}</p>
+                            @endforeach
+                        </div>
                     </div>
+
+                    <!-- COMMENT -->
+                    <hr>
+
+                    <button type="submit" class="btn btn-primary float-right "> Submit review <i
+                                class="fa fa-paper-plane ml-2"></i></button>
+                    <!-- END COMMENT -->
+
                 </div>
-                <div class="col-md-6">
-                    <div class="single_navigation-next text-left text-md-right">
-                        <a href="#">
-                            <span>next post</span>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, nesciunt.
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-
-            <!-- COMMENTS -->
-            <h6>3 Comments:</h6>
-            <div class="single__detail-features-review">
-                <div class="media mt-4">
-                    <img class="mr-3 img-fluid rounded-circle" src="{{asset('assets/images/profile-blog.jpg')}}" alt="">
-                    @foreach($article as $reviews)
-                    <div class="media-body">
-                        <h6 class="mt-0">Jhon doe</h6>
-                        <span class="mb-3">Mei 13, 2020</span>
-
-                        <ul class="list-inline">
-                            <li class="list-inline-item">
-                                <i class="fa fa-star selected"></i>
-                                <i class="fa fa-star selected"></i>
-                                <i class="fa fa-star selected"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </li>
-                            <li class="list-inline-item">3/5</li>
-                        </ul>
-
-
-                        <p>{{$reviews->reviews->comment}}</p>
-
-
-                    </div>
-                        @endforeach
-                </div>
-
-                <!-- COMMENT -->
-                <hr>
-
-                <button type="submit" class="btn btn-primary float-right "> Submit review <i
-                            class="fa fa-paper-plane ml-2"></i></button>
-                <!-- END COMMENT -->
+                <!-- END COMMENTS -->
 
             </div>
-            <!-- END COMMENTS -->
-
         </div>
-    </div>
         <!-- WIDGET BLOG -->
         <div class="col-lg-4">
             <div class="sticky-top">
@@ -205,14 +112,15 @@
                         </div>
                         <div class="widget__sidebar__body">
                             <ul class="list-unstyled">
-                                {{--@foreach($article as $categories)--}}
-                                    {{--<li>--}}
-                                        {{--<a href="#" class="text-capitalize">--}}
-                                            {{--{{$categories->category->category}}--}}
-                                            {{--<span class="badge badge-primary">{{count(\App\Article::all())}}</span>--}}
-                                        {{--</a>--}}
-                                    {{--</li>--}}
-                                {{--@endforeach--}}
+
+                                @foreach($categories as $category)
+                                <li>
+                                    <a href="#" class="text-capitalize">
+                                    {{$category->category}}
+                                <span class="badge badge-primary">{{count($category->articles)}}</span>
+                                </a>
+                                </li>
+                                @endforeach
                             </ul>
                         </div>
 
@@ -226,7 +134,7 @@
                         <div class="widget__sidebar__body">
                             <!-- ONE -->
                             <div class="widget__sidebar__body-img">
-                                <img src="images/gallery.jpg" alt="" class="img-fluid">
+                                <img src="{{asset('assets/images/gallery.jpg')}}" alt="" class="img-fluid">
 
                                 <div class="widget__sidebar__body-heading">
                                     <h6 class="text-capitalize">
@@ -252,7 +160,7 @@
                             </div>
                             <!-- THREE -->
                             <div class="widget__sidebar__body-img">
-                                <img src="images/gallery2.jpg" alt="" class="img-fluid">
+                                <img src="{{asset('assets/images/gallery2.jpg')}}" alt="" class="img-fluid">
                                 <div class="widget__sidebar__body-heading">
                                     <h6 class="text-capitalize">
                                         twe are experience more than 10 years
@@ -264,7 +172,7 @@
                             </div>
                             <!-- FOUR -->
                             <div class="widget__sidebar__body-img">
-                                <img src="images/gallery3.jpg" alt="" class="img-fluid">
+                                <img src="{{asset('assets/images/gallery3.jpg')}}" alt="" class="img-fluid">
 
                                 <div class="widget__sidebar__body-heading">
                                     <h6 class="text-capitalize">
@@ -277,7 +185,7 @@
                             </div>
 
                             <div class="widget__sidebar__body-img">
-                                <img src="images/gallery4.jpg" alt="" class="img-fluid">
+                                <img src="{{asset('assets/images/gallery4.jpg')}}" alt="" class="img-fluid">
 
                                 <div class="widget__sidebar__body-heading">
                                     <h6 class="text-capitalize">
@@ -368,6 +276,7 @@
             </div>
         </div>
         <!-- END WIDGET BLOG -->
+
     </div>
 
-    @endsection
+@endsection

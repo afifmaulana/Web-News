@@ -19,7 +19,7 @@ class ArticleController extends Controller
 
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::where('status', true)->get();
         return response()->json([
             'message' => 'Berhasil Menampilkan Artikel',
             'status' => true,
